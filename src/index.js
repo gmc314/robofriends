@@ -1,14 +1,14 @@
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import CardList from './components/CardList';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'tachyons'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <StrictMode>
-    <CardList/>
+    <App/>
   </StrictMode>
 );
 
