@@ -10,7 +10,6 @@ class App extends Component  {
       robots: robots,
       searchfield: ""
     };
-    this.onChange = this.onSearchChange.bind(this);
   }
   onSearchChange (e) {
     console.log(e.target.value)
@@ -20,7 +19,7 @@ class App extends Component  {
     return (
       <div className="tc">
         <h1>RoboFriends</h1>
-        <SearchBox SearchChange={ this.onChange } />
+        <SearchBox searchChange={ this.onSearchChange } />
         <CardList robots={ this.state.robots }/>
       </div>
     );
