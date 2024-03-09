@@ -25,12 +25,5 @@ class App extends Component  {
     );
   }
 }
-/*<input
-          className="pa3 ba b--blue bg-lightest-blue"
-          type="search" 
-          placeholder="Search Robots"
-          onChange={this.onSearchChange}
-          >
-        </input>
-        */
+
 export default App;
