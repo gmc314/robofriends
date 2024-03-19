@@ -9,22 +9,24 @@ function App() {
   const [ robots, setRobots ] = useState([]);
   const [ searchfield, setSearchfield ] = useState("");
   
-  useEffect(()=> {
+  useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(users => {setRobots(users)});
   },[])
 
-  const onSearchChange = (e) => {
-    setSearchfield(e.target.value)
- }
+  const onSearchChange = (event) => {
+    setSearchfield(event.target.value)
+  }
+  
   const filteredRobots = robots.filter(bot => {
     return bot.name.toLowerCase().includes(searchfield.toLowerCase())
-    })
+    }
+  )
 
-  return !robots.length ? 
+  return robots.length === 0 ? 
   <h1>Loading</h1>  
-  : (
+  :(
     <div className="tc">
       <h1 className="f1">Robots</h1>
       <SearchBox searchChange={ onSearchChange } />
