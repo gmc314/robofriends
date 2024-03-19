@@ -6,33 +6,22 @@ import ErrorBoundary from "../components/ErrorBoundary";
 import './App.css'; 
 
 function App() {
-  // constructor() {
-  // super();
   const [ robots, setRobots ] = useState([]);
   const [ searchfield, setSearchfield ] = useState("");
-    // this.state  = {
-    //   robots: [],
-    //   searchfield: ""
-    // };
-
-  // componentDidMount() {
-  //   fetch('https://jsonplaceholder.typicode.com/users')
-  //     .then(response => response.json())
-  //     .then(users => this.setState({robots: users}));
-  // }
+  
   useEffect(()=> {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(users => {setRobots(users)});
   },[])
-  
+
   const onSearchChange = (e) => {
     setSearchfield(e.target.value)
  }
-
   const filteredRobots = robots.filter(bot => {
     return bot.name.toLowerCase().includes(searchfield.toLowerCase())
     })
+
   return !robots.length ? 
   <h1>Loading</h1>  
   : (
